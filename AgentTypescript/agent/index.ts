@@ -1,5 +1,10 @@
 import { log } from "./logger.js";
 
+log("success");
+
+function logvalue() {
+    log("logvalue run!");
+}
 
 Process.getModuleByName("libMyGame.so")
     .enumerateExports()
@@ -14,3 +19,7 @@ Interceptor.attach(Module.getExportByName(null, "open"), {
         log(`open() path="${path}"`);
     }
 });
+
+rpc.exports = {
+    logvaluefunc: logvalue
+};
