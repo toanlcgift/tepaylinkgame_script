@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "PythonApplication1.pyproj", "{43BC6D78-7244-426F-B95F-4725F76B6013}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "FridaPython", "FridaPython\FridaPython.pyproj", "{43BC6D78-7244-426F-B95F-4725F76B6013}"
 EndProject
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "NodejsConsoleApp1", "..\NodejsConsoleApp1\NodejsConsoleApp1.njsproj", "{4D045F3A-CD2A-48FE-AB0E-6A36270B78BA}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "AgentTypescript", "AgentTypescript\AgentTypescript.njsproj", "{4D045F3A-CD2A-48FE-AB0E-6A36270B78BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
