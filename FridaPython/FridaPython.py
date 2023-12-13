@@ -1,29 +1,26 @@
-import sys
 import time
 import frida
+import sys
 
-device = frida.get_usb_device()
+package_name = "com.tepaylink.kiemhieptinh2mobile"
 
-def on_message(message, data):
-    print("[on_message] message:", message, "data:", data)
 
-processes = device.enumerate_processes(scope="full")
-for proc in processes:
-    params = dict(proc.parameters)
-    if "Mobile" in proc.name:
-        print(proc.name + ' | ' + str(proc.pid))
-        session = device.attach(proc.pid)
-        with open("_agent.js") as f:
-            abc = f.read()
-            script = session.create_script(f.read())
-        script.on("message", on_message)
-        script.load()
+def get_messages_from_js(message, data): #print(message)
+    print(message)
 
-command = ""
 
-while 1 == 1:
-    command = input("Enter command:")
-    if command == "1":
-        break
-    elif command == "2":
-        script.exports_async.logvaluefunc()
+def instrument_debugger_checks():
+    with open("_agent.js") as f:
+            hook_code = f.read()
+            time.sleep(5)
+    return hook_code
+
+device = frida.get_usb_device()# run package
+p1 = device.spawn([package_name])
+process = device.attach(p1)
+script = process.create_script(instrument_debugger_checks())
+script.on('message', get_messages_from_js)
+script.load()# Extremely important to add this else the app would freeze
+time.sleep(2)
+device.resume(p1)
+sys.stdin.read()

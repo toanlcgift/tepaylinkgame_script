@@ -1,25 +1,19 @@
-import { log } from "./logger.js";
-
-log("success");
-
-function logvalue() {
-    log("logvalue run!");
-}
-
-Process.getModuleByName("libMyGame.so")
-    .enumerateExports()
-    .slice(0, 16)
-    .forEach((exp, index) => {
-        log(`export ${index}: ${exp.name}`);
-    });
-
-Interceptor.attach(Module.getExportByName(null, "open"), {
-    onEnter(args) {
-        const path = args[0].readUtf8String();
-        log(`open() path="${path}"`);
+var didHookApis = false;
+Interceptor.attach(Module.findExportByName(null, 'dlopen') ?? new NativePointer(0x00), {
+    onEnter: function (args) {
+        console.log(args[0].readUtf8String());
+        this.path = args[0].readUtf8String();
+    },
+    onLeave: function (retval) {
+        if (!retval.isNull() && this.path.indexOf('libMyGame.so') !== -1 && !didHookApis) {
+            didHookApis = true;
+            console.log("File loaded hooking");
+            hooknative2();
+            // ...
+        }
     }
 });
 
-rpc.exports = {
-    logvaluefunc: logvalue
-};
+function hooknative2() {
+    console.log("hooknative2");
+}
