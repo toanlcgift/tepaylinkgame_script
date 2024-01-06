@@ -32,6 +32,9 @@ the output:
 
 ![image](https://github.com/toanlcgift/tepaylinkgame_script/assets/12400049/f659208d-f3fe-41bb-916f-a6abe715f811)
 
+- read cocos version, it's cocos2d-x-4.0
+ 
+  ![image](https://github.com/toanlcgift/tepaylinkgame_script/assets/12400049/0d6361e9-4980-4f9f-8e5d-a97d90c0c868)
 
 IOS:
 - seem more easier, not implement yet. 
