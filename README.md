@@ -14,6 +14,8 @@ Android:
 ![image](https://github.com/toanlcgift/tepaylinkgame_script/assets/12400049/d706547d-4db1-4b90-98e8-0af6b8f80ae9)
 
   The big issue is that LDPlayer is based on x86_64 and this app only support arm64-v8a, armeabi-v7a. => when having a good solution, I'll PR for frida & ceserver
+  
+- solution: using frida-gadget-arm.so in embedded mode, libhoudini will load arm lib on x86_64 device. I use LIEF as injection tool.
 
 IOS:
 - seem more easier, not implement yet. 
