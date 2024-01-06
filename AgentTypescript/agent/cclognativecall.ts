@@ -2,3 +2,7 @@ var logFunctionAddr = Module.findExportByName('libMyGame.so', '_ZN7cocos2d3logEP
 var logFunctionCall = new NativeFunction(logFunctionAddr, 'void', ['pointer']);
 var value = Memory.allocUtf8String("cocos log function called!");
 logFunctionCall(value);
+
+var getVersionFunctionAddr = Module.findExportByName('libMyGame.so', '_ZN7cocos2d14cocos2dVersionEv') ?? new NativePointer(0x00);
+var getVersionFunctionCall = new NativeFunction(getVersionFunctionAddr, 'pointer', []);
+console.log(getVersionFunctionCall().readUtf8String());
