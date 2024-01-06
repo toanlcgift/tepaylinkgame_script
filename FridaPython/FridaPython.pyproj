@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>43bc6d78-7244-426f-b95f-4725f76b6013</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Android.py</StartupFile>
+    <StartupFile>InjectARM.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -12,6 +12,7 @@
     <Name>FridaPython</Name>
     <RootNamespace>FridaPython</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <SuppressPackageInstallationPrompt>True</SuppressPackageInstallationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +24,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Android.py" />
+    <Compile Include="InjectARM.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Iphone.py">
       <SubType>Code</SubType>
     </Compile>
