@@ -15,7 +15,7 @@ Android:
 
   The big issue is that LDPlayer is based on x86_64 and this app only support arm64-v8a, armeabi-v7a. => when having a good solution, I'll PR for frida & ceserver
   
-- solution: using frida-gadget-arm.so in embedded mode, libhoudini will load arm lib on x86_64 device. I use LIEF as injection tool.
+- solution: using frida-gadget-arm.so in embedded mode, libhoudini will load arm lib on x86_64 device. I use LIEF as injection tool. Cheat engine server would be loaded as well as frida-gadget.
 
 IOS:
 - seem more easier, not implement yet. 
