@@ -1,6 +1,10 @@
 export class CustomNativeFunction {
     
     private static libName: string = 'libMyGame.so';
+    private static libNativeName: string = 'libnativehook.so';
+
+    //void nativehook()
+    public static nativeHookPointer: NativePointer = Module.findExportByName(this.libNativeName, 'nativehook') ?? new NativePointer(0x00);
 
     //cocos2d::log(char const*, ...)
     public static cclogPointer: NativePointer = Module.findExportByName(this.libName, '_ZN7cocos2d3logEPKcz') ?? new NativePointer(0x00);
@@ -21,4 +25,5 @@ export class CustomNativeFunction {
     public static ccGetVerion: NativeFunction<NativePointer, NativePointerValue[]> = new NativeFunction(this.ccGetVersionPointer, 'pointer', []);
     public static ccSpriteCreate: NativeFunction<NativePointer, NativePointerValue[]> = new NativeFunction(this.ccSpriteCreatePointer, 'pointer', ['pointer']);
     public static ccNodeAddChild: NativeFunction<number, [NativePointerValue, NativePointerValue, number]> = new NativeFunction(this.ccNodeAddChildPointer, 'uint', ['pointer', 'pointer', 'int']);
+    public static nativeHook: NativeFunction<void, NativePointerValue[]> = new NativeFunction(this.nativeHookPointer, 'void', ['pointer']);
 }

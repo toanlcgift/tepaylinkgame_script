@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>43bc6d78-7244-426f-b95f-4725f76b6013</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Android.py</StartupFile>
+    <StartupFile>InjectARM.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
