@@ -37,9 +37,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="agent\" />
+    <Folder Include="agent\common\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="agent\cclognativecall.ts" />
+    <TypeScriptCompile Include="agent\common\StdString.ts" />
     <TypeScriptCompile Include="agent\index.ts" />
     <TypeScriptCompile Include="agent\logger.ts" />
   </ItemGroup>
