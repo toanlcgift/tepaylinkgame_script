@@ -7,7 +7,7 @@ export class StdString {
     }
 
     get bufAddr() {
-        if (this.reservedSize.compare(16) > 0) {
+        if (this.reservedSize.compare(BUF_SIZE) > 0) {
             return this.addr.readPointer();
         } else {
             return this.addr;
