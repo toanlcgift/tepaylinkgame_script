@@ -8,5 +8,6 @@
     <ClInclude Include="nativehook.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="json.h" />
+    <ClInclude Include="jsondump.h" />
   </ItemGroup>
 </Project>

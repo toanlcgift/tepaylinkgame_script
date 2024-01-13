@@ -1,10 +1,10 @@
 📦
-450 /agent/index.js
+333 /agent/index.js
 528 /agent/common/StdString.js
 158 /agent/logger.js
 1710 /agent/nativefunctions.js
 ✄
-import{log as n}from"./logger.js";import{StdString as t}from"./common/StdString.js";import{CustomNativeFunction as e}from"./nativefunctions.js";let o=!0;Interceptor.attach(e.ccGLRenderScenePointer,{onEnter:function(n){if(o){o=!1;var t=n[0].readPointer();console.log("currentScene: "+t),e.nativeHook()}},onLeave:function(n){}}),Interceptor.attach(e.ccSpriteCreatePointer,{onEnter:function(e){n(new t(e[0]).getStdString()??"")},onLeave:function(n){}});
+import{CustomNativeFunction as e}from"./nativefunctions.js";let n=!0;Interceptor.attach(e.ccGLRenderScenePointer,{onEnter:function(t){if(n){n=!1;var o=t[0].readPointer();console.log("currentScene: "+o),e.nativeHook()}},onLeave:function(e){}}),Interceptor.attach(e.ccSpriteCreatePointer,{onEnter:function(e){},onLeave:function(e){}});
 ✄
 export class StdString{constructor(r){this.addr=r}get bufAddr(){return this.reservedSize.compare(16)>0?this.addr.readPointer():this.addr}get size(){return this.addr.add(16).readPointer()}get reservedSize(){return this.addr.add(16).add(Process.pointerSize).readPointer()}toString(){const r=this.size;return r.isNull()?"<EMPTY std::string>":this.bufAddr.readCString(r.toInt32())}getStdString(){return 0==(1&this.addr.readU8())?this.addr.add(1).readUtf8String():this.addr.add(2*Process.pointerSize).readPointer().readUtf8String()}}
 ✄

@@ -1,6 +1,7 @@
 #include "nativehook.h"
 #include <string>
 #include "json.h"
+#include "jsondump.h"
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "nativehook", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "nativehook", __VA_ARGS__))
@@ -36,6 +37,12 @@ extern "C" {
 		uintptr_t ccLogFuncAddress = 0x3aefdbd;
 		CCLogFunc = (CCLog)(ccLogFuncAddress);
 		CCLogFunc("native hook!");
+
+		std::string input = std::string(DUMP_JSON);
+		json::jobject result = json::jobject::parse(input);
+		if (result.is_array()) {
+			result.array(0).get("name").as_string().c_str();
+		}
 	}
 
 	nativehook::nativehook()

@@ -21,7 +21,7 @@ Interceptor.attach(CustomNativeFunction.ccGLRenderScenePointer, {
 
 Interceptor.attach(CustomNativeFunction.ccSpriteCreatePointer, {
     onEnter: function (args) {
-        log(new StdString(args[0]).getStdString() ?? '');
+        //log(new StdString(args[0]).getStdString() ?? '');
     },
     onLeave: function (retval) {
     }

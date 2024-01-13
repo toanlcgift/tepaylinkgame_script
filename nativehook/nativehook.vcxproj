@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="json.h" />
+    <ClInclude Include="jsondump.h" />
     <ClInclude Include="nativehook.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
