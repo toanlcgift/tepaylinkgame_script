@@ -36,5 +36,22 @@ the output:
  
   ![image](https://github.com/toanlcgift/tepaylinkgame_script/assets/12400049/0d6361e9-4980-4f9f-8e5d-a97d90c0c868)
 
+
+### Native so hook
+
+``` C++
+typedef void(__cdecl* CCLog)(char const* input);
+CCLog CCLogFunc;
+
+void nativehook()
+{
+	uintptr_t ccLogFuncAddress = CC_LOG_FUNC_ADDRESS;
+	CCLogFunc = (CCLog)(ccLogFuncAddress);
+	CCLogFunc("native hook!");
+}
+```
+
+and just invoke it from typescript agent
+
 IOS:
 - seem more easier, not implement yet. 
