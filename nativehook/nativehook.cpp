@@ -1,5 +1,6 @@
 #include "nativehook.h"
 #include <string>
+#include "json.h"
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "nativehook", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "nativehook", __VA_ARGS__))

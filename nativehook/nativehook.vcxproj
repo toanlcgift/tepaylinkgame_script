@@ -145,6 +145,7 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ExceptionHandling>Enabled</ExceptionHandling>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -154,9 +155,11 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="json.cpp" />
     <ClCompile Include="nativehook.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="json.h" />
     <ClInclude Include="nativehook.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
