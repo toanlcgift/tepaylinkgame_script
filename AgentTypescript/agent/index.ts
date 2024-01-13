@@ -9,13 +9,9 @@ Interceptor.attach(CustomNativeFunction.ccGLRenderScenePointer, {
         if (firstRun) {
             firstRun = false;
             var currentScene = args[0].readPointer();
-            console.log(currentScene);
-            //var sprite = CustomNativeFunction.ccSpriteCreate(Memory.allocUtf8String("bgloading.jpg"));
-            //console.log(sprite);
-            //CustomNativeFunction.ccNodeAddChild(currentScene, sprite, 100);
+            console.log("currentScene: " + currentScene);
 
-            CustomNativeFunction.nativeHook(Memory.allocUtf8String("test"));
-            
+            CustomNativeFunction.nativeHook();
         }
     },
     onLeave: function (retval) {

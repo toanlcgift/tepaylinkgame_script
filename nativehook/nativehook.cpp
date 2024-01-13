@@ -1,4 +1,5 @@
 #include "nativehook.h"
+#include <string>
 
 #define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "nativehook", __VA_ARGS__))
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, "nativehook", __VA_ARGS__))
@@ -31,9 +32,8 @@ extern "C" {
 
 	void nativehook()
 	{
-		uintptr_t moduleAddress = 0x3380000;
 		uintptr_t ccLogFuncAddress = 0x3aefdbd;
-		CCLogFunc = (CCLog)(moduleAddress + ccLogFuncAddress);
+		CCLogFunc = (CCLog)(ccLogFuncAddress);
 		CCLogFunc("native hook!");
 	}
 
